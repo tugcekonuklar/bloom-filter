@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
+    <appender name="FILE-MODULE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/module/module.log</file>
+        <encoder>
             <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+                %d{yyyy-MM-dd HH:mm:ss} - %msg%n
             </Pattern>
-        </layout>
+        </encoder>
     </appender>
 
-    <logger name="com.dkb.bloom.filter" level="info" additivity="false">
-        <appender-ref ref="CONSOLE"/>
+    <logger name="com.dkb.bloom.filter" level="debug" additivity="false">
+        <appender-ref ref="FILE-MODULE" />
     </logger>
-
-    <root level="error">
-        <appender-ref ref="CONSOLE"/>
-    </root>
-
 </configuration>
